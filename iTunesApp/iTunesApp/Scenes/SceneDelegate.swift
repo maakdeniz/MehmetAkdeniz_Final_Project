@@ -15,7 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        
         let homeViewController = HomeRouter.createModule()
         let navigationController = UINavigationController(rootViewController: homeViewController)
         window.rootViewController = navigationController
@@ -23,9 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         window.makeKeyAndVisible()
     }
-    
-    
-    
     
     func sceneDidDisconnect(_ scene: UIScene) {
         

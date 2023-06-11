@@ -5,22 +5,25 @@
 //  Created by Mehmet Akdeniz on 7.06.2023.
 //
 
-import Foundation
-import iTunesAPI
+
+//import iTunesAPI
 import UIKit
 
-protocol PresenterToRouterDetailProtocol {
-    static func createDetailModule(with music: Music) -> UIViewController
+protocol DetailRoterProtocol {
+    static func createDetailModule(/*with music: Music*/) -> UIViewController
 }
 
-class DetailRouter: PresenterToRouterDetailProtocol {
-    static func createDetailModule(with music: Music) -> UIViewController {
+final class DetailRouter: DetailRoterProtocol {
+    static func createDetailModule(/*with music: Music*/) -> UIViewController {
         let view = DetailView(nibName: "DetailView", bundle: nil)
-        var presenter: ViewToPresenterDetailProtocol = DetailPresenter()
+        let interactor: DetailInteractorProtocol = DetailInteractor()
+        var presenter: DetailPresenterProtocol = DetailPresenter()
         
         view.presenter = presenter
-        presenter.view = view as? any PresenterToViewDetailProtocol
-        presenter.music = music
+        presenter.view = view as DetailViewProtocol
+        //presenter.music = music
+        presenter.interactor = interactor
+        //interactor.music = music
         
         return view
     }

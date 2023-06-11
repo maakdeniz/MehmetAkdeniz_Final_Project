@@ -8,23 +8,29 @@
 import Foundation
 import iTunesAPI
 
-protocol PresenterToInteractorHomeProtocol {
-    var presenter:InteractorToPresenterHomeProtocol? { get set }
+protocol HomeInteractorProtocol {
+    var presenter:HomePresenterOutputProtocol? { get set }
+    var service: ITunesServiceProtocol? { get set }
     func fetchMusicForArtist(searchTerm: String)
 }
 
-class HomeInteractor: PresenterToInteractorHomeProtocol {
-    var presenter: InteractorToPresenterHomeProtocol?
-    let service = ITunesService()
+final class HomeInteractor: HomeInteractorProtocol {
+    var presenter: HomePresenterOutputProtocol?
+        var service: ITunesServiceProtocol?
+        
+        init(service: ITunesServiceProtocol) {
+            self.service = service
+        }
 
-    func fetchMusicForArtist(searchTerm: String) {
-        service.fetchMusicForArtist(artist: searchTerm) { result in
-            switch result {
-            case .success(let musicList):
-                self.presenter?.musicFetchedSuccess(musicModelArray: musicList)
-            case .failure(_):
-                self.presenter?.musicFetchFailed()
+    func fetchMusicForArtist(searchTerm:String) {
+            service?.fetchMusicForArtist(artist: searchTerm) { [weak self] result in
+                switch result {
+                case .success(let musicList):
+                    self?.presenter?.musicFetchedSuccess(musicModelArray: musicList)
+                case .failure(let error):
+                    print(error)
+                    self?.presenter?.musicFetchFailed()
+                }
             }
         }
     }
-}

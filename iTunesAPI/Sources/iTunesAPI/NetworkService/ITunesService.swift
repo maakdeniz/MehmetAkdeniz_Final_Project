@@ -1,13 +1,20 @@
 //
 //  ITunesService.swift
-//  
+//
 //
 //  Created by Mehmet Akdeniz on 6.06.2023.
 //
 
+
+
 import Foundation
 
-public class ITunesService {
+public protocol ITunesServiceProtocol {
+    func fetchMusicForArtist(artist: String, completion: @escaping (Result<[Music], Error>) -> Void)
+}
+
+public class ITunesService: ITunesServiceProtocol {
+    
     public init() { }
 
     public func fetchMusicForArtist(artist: String, completion: @escaping (Result<[Music], Error>) -> Void) {
@@ -30,12 +37,16 @@ public class ITunesService {
                 let musicData = try decoder.decode(MusicData.self, from: data)
 
                 let musicList = musicData.results.map { track in
-                    Music(artistName: track.artistName,
-                          trackName: track.trackName,
-                          artworkUrl: track.artworkUrl100,
-                          collectionName: track.collectionName,
-                          previewUrl: track.previewUrl)
+                    Music(artistName: track.artistName ?? "",
+                          trackName: track.trackName ?? "",
+                          artworkUrl: track.artworkUrl100 ?? "",
+                          collectionName: track.collectionName ?? "",
+                          previewUrl: track.previewUrl ?? "",
+                          trackPrice: track.trackPrice ?? 0.0,
+                          collectionPrice: track.collectionPrice ?? 0.0,
+                          primaryGenreName: track.primaryGenreName ?? "")
                 }
+
 
                 completion(.success(musicList))
             } catch {
@@ -45,15 +56,9 @@ public class ITunesService {
     }
 }
 
-struct MusicData: Codable {
-    let results: [Track]
-}
 
-struct Track: Codable {
-    let artistName: String
-    let trackName: String
-    let artworkUrl100: String
-    let collectionName: String
-    let previewUrl: String
-}
+
+
+
+
 

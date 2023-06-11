@@ -8,36 +8,50 @@
 import Foundation
 import iTunesAPI
 
-protocol InteractorToPresenterHomeProtocol {
+protocol HomePresenterOutputProtocol {
+    
     func musicFetchedSuccess(musicModelArray:Array<Music>)
     func musicFetchFailed()
+    
 }
 
-protocol ViewToPresenterHomeProtocol {
-    var view: PresenterToViewHomeProtocol? { get set }
-    var interactor: PresenterToInteractorHomeProtocol? { get set }
-    var router: PresenterToRouterHomeProtocol? { get set }
+protocol HomePresenterProtocol {
+    var view: HomeViewProtocol? { get set }
+    var interactor: HomeInteractorProtocol? { get set }
+    var router: HomeRouterProtocol? { get set }
     
     func startFetchingMusic(searchTerm: String)
     func showDetailScreen(music: Music)
+    func setScreenTitle()
+    func setSetupTableviewAndSearchBar()
 }
 
-class HomePresenter: ViewToPresenterHomeProtocol {
-    
-    func showDetailScreen(music: Music) {
-        router?.navigateToDetailView(on: view, with: music)
-    }
-    
-    var view: PresenterToViewHomeProtocol?
-    var interactor: PresenterToInteractorHomeProtocol?
-    var router: PresenterToRouterHomeProtocol?
+final class HomePresenter: HomePresenterProtocol {
+   
+    var view: HomeViewProtocol?
+    var interactor: HomeInteractorProtocol?
+    var router: HomeRouterProtocol?
     
     func startFetchingMusic(searchTerm: String) {
         interactor?.fetchMusicForArtist(searchTerm: searchTerm)
     }
+    
+    func showDetailScreen(music: Music) {
+        MusicPlayerService.shared.stop()
+        router?.navigateToDetailView(on: view, with: music)
+    }
+    
+    func setScreenTitle() {
+        view?.setTitle("iTunes Search")
+    }
+    
+    func setSetupTableviewAndSearchBar() {
+        view?.setupTableviewAndSearchBar()
+    }
 }
 
-extension HomePresenter: InteractorToPresenterHomeProtocol {
+extension HomePresenter: HomePresenterOutputProtocol {
+   
     func musicFetchedSuccess(musicModelArray: Array<Music>) {
         view?.showMusic(musicArray: musicModelArray)
     }
@@ -46,5 +60,3 @@ extension HomePresenter: InteractorToPresenterHomeProtocol {
         view?.showError()
     }
 }
-
-

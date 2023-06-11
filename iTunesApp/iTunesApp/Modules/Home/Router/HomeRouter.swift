@@ -8,30 +8,30 @@
 import UIKit
 import iTunesAPI
 
-protocol PresenterToRouterHomeProtocol {
+protocol HomeRouterProtocol {
     static func createModule() -> UIViewController
-    func navigateToDetailView(on view: PresenterToViewHomeProtocol?, with music: Music)
+    func navigateToDetailView(on view: HomeViewProtocol?, with music: Music)
 }
 
-class HomeRouter: PresenterToRouterHomeProtocol {
+final class HomeRouter: HomeRouterProtocol {
     
-    func navigateToDetailView(on view: PresenterToViewHomeProtocol?, with music: Music) {
+    func navigateToDetailView(on view: HomeViewProtocol?, with music: Music) {
         
         if let sourceView = view as? UIViewController {
-            let detailViewController = DetailRouter.createDetailModule(with: music)
+            let detailViewController = DetailRouter.createDetailModule()
             if let detailView = detailViewController as? DetailView {
                 detailView.presenter?.music = music
             }
             sourceView.navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
-
+    
     static func createModule() -> UIViewController {
         
-        let view = HomeView(nibName: "HomeView", bundle: nil)  // Bu satır kodu ekleyin
-        var presenter: ViewToPresenterHomeProtocol & InteractorToPresenterHomeProtocol = HomePresenter()
-        var interactor: PresenterToInteractorHomeProtocol = HomeInteractor()
-        let router: PresenterToRouterHomeProtocol = HomeRouter()
+        let view = HomeView()
+        var presenter: HomePresenterProtocol & HomePresenterOutputProtocol = HomePresenter()
+        var interactor: HomeInteractorProtocol = HomeInteractor(service: ITunesService())
+        let router: HomeRouterProtocol = HomeRouter()
         
         view.presenter = presenter
         presenter.view = view
@@ -42,5 +42,3 @@ class HomeRouter: PresenterToRouterHomeProtocol {
         return view
     }
 }
-
-

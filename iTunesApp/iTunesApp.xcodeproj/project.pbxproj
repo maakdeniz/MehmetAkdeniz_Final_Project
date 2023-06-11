@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		2B039AF92A30849000DAD28E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B039AF82A30849000DAD28E /* DetailPresenter.swift */; };
 		2B039AFB2A30850600DAD28E /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B039AFA2A30850600DAD28E /* DetailRouter.swift */; };
+		2B1970D22A35C4D4000A518B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1970D12A35C4D4000A518B /* CoreDataStack.swift */; };
+		2B1970D42A35C4F4000A518B /* MusicPlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1970D32A35C4F4000A518B /* MusicPlayerService.swift */; };
+		2B1970D62A35C52F000A518B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1970D52A35C52F000A518B /* BaseView.swift */; };
+		2B1970D82A35C5A0000A518B /* DetailViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1970D72A35C5A0000A518B /* DetailViewInteractor.swift */; };
 		2B97C98B2A2FDB52001547AB /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B97C9892A2FDB52001547AB /* DetailView.swift */; };
 		2B97C98C2A2FDB52001547AB /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B97C98A2A2FDB52001547AB /* DetailView.xib */; };
 		2BC2833E2A2F754D00C57272 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2833D2A2F754D00C57272 /* AppDelegate.swift */; };
 		2BC283402A2F754D00C57272 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2833F2A2F754D00C57272 /* SceneDelegate.swift */; };
-		2BC283422A2F754D00C57272 /* ConnectivityCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283412A2F754D00C57272 /* ConnectivityCheckView.swift */; };
 		2BC283482A2F754D00C57272 /* iTunesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283462A2F754D00C57272 /* iTunesApp.xcdatamodeld */; };
 		2BC2834A2A2F754E00C57272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC283492A2F754E00C57272 /* Assets.xcassets */; };
 		2BC2834D2A2F754E00C57272 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC2834B2A2F754E00C57272 /* LaunchScreen.storyboard */; };
@@ -22,9 +25,6 @@
 		2BC283642A2F754E00C57272 /* iTunesAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283632A2F754E00C57272 /* iTunesAppUITestsLaunchTests.swift */; };
 		2BC2838C2A2F7BE100C57272 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2838B2A2F7BE100C57272 /* LoadingView.swift */; };
 		2BC2838F2A2F7CBA00C57272 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2838E2A2F7CBA00C57272 /* LoadingShowable.swift */; };
-		2BC283912A2F855D00C57272 /* ViewToPresenterConnectivityCheckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283902A2F855D00C57272 /* ViewToPresenterConnectivityCheckProtocol.swift */; };
-		2BC283932A2F865000C57272 /* ConnectivityCheckInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283922A2F865000C57272 /* ConnectivityCheckInteractor.swift */; };
-		2BC283952A2F86B200C57272 /* ConnectivityCheckRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283942A2F86B200C57272 /* ConnectivityCheckRouter.swift */; };
 		2BC283982A2F8CE800C57272 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC283962A2F8CE800C57272 /* HomeView.swift */; };
 		2BC283992A2F8CE800C57272 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BC283972A2F8CE800C57272 /* HomeView.xib */; };
 		2BC2839B2A2F8D9400C57272 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC2839A2A2F8D9400C57272 /* HomeInteractor.swift */; };
@@ -55,12 +55,15 @@
 /* Begin PBXFileReference section */
 		2B039AF82A30849000DAD28E /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		2B039AFA2A30850600DAD28E /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		2B1970D12A35C4D4000A518B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2B1970D32A35C4F4000A518B /* MusicPlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerService.swift; sourceTree = "<group>"; };
+		2B1970D52A35C52F000A518B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		2B1970D72A35C5A0000A518B /* DetailViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewInteractor.swift; sourceTree = "<group>"; };
 		2B97C9892A2FDB52001547AB /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2B97C98A2A2FDB52001547AB /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		2BC2833A2A2F754D00C57272 /* iTunesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC2833D2A2F754D00C57272 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BC2833F2A2F754D00C57272 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2BC283412A2F754D00C57272 /* ConnectivityCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityCheckView.swift; sourceTree = "<group>"; };
 		2BC283472A2F754D00C57272 /* iTunesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iTunesApp.xcdatamodel; sourceTree = "<group>"; };
 		2BC283492A2F754E00C57272 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BC2834C2A2F754E00C57272 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,9 +76,6 @@
 		2BC283702A2F758E00C57272 /* iTunesAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = iTunesAPI; path = ../iTunesAPI; sourceTree = "<group>"; };
 		2BC2838B2A2F7BE100C57272 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		2BC2838E2A2F7CBA00C57272 /* LoadingShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingShowable.swift; sourceTree = "<group>"; };
-		2BC283902A2F855D00C57272 /* ViewToPresenterConnectivityCheckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewToPresenterConnectivityCheckProtocol.swift; sourceTree = "<group>"; };
-		2BC283922A2F865000C57272 /* ConnectivityCheckInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityCheckInteractor.swift; sourceTree = "<group>"; };
-		2BC283942A2F86B200C57272 /* ConnectivityCheckRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityCheckRouter.swift; sourceTree = "<group>"; };
 		2BC283962A2F8CE800C57272 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2BC283972A2F8CE800C57272 /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		2BC2839A2A2F8D9400C57272 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 		2BC283712A2F761400C57272 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2BC283862A2F7A4A00C57272 /* ConnectivityCheck */,
+				2BC283862A2F7A4A00C57272 /* BaseView */,
 				2BC283742A2F764F00C57272 /* Detail */,
 				2BC283732A2F764400C57272 /* Home */,
 				2BC283752A2F765500C57272 /* Service */,
@@ -233,6 +233,7 @@
 		2BC283772A2F76D500C57272 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				2B1970D72A35C5A0000A518B /* DetailViewInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -335,45 +336,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2BC283862A2F7A4A00C57272 /* ConnectivityCheck */ = {
+		2BC283862A2F7A4A00C57272 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
 				2BC2838A2A2F7A5F00C57272 /* View */,
-				2BC283892A2F7A5D00C57272 /* Interactor */,
-				2BC283882A2F7A5A00C57272 /* Presenter */,
-				2BC283872A2F7A5800C57272 /* Router */,
 			);
-			path = ConnectivityCheck;
-			sourceTree = "<group>";
-		};
-		2BC283872A2F7A5800C57272 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2BC283942A2F86B200C57272 /* ConnectivityCheckRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		2BC283882A2F7A5A00C57272 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2BC283902A2F855D00C57272 /* ViewToPresenterConnectivityCheckProtocol.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		2BC283892A2F7A5D00C57272 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2BC283922A2F865000C57272 /* ConnectivityCheckInteractor.swift */,
-			);
-			path = Interactor;
+			path = BaseView;
 			sourceTree = "<group>";
 		};
 		2BC2838A2A2F7A5F00C57272 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2BC283412A2F754D00C57272 /* ConnectivityCheckView.swift */,
+				2B1970D52A35C52F000A518B /* BaseView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -383,6 +357,8 @@
 			children = (
 				2BC2838B2A2F7BE100C57272 /* LoadingView.swift */,
 				2BC2838E2A2F7CBA00C57272 /* LoadingShowable.swift */,
+				2B1970D12A35C4D4000A518B /* CoreDataStack.swift */,
+				2B1970D32A35C4F4000A518B /* MusicPlayerService.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -539,16 +515,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC283952A2F86B200C57272 /* ConnectivityCheckRouter.swift in Sources */,
 				2BC2839B2A2F8D9400C57272 /* HomeInteractor.swift in Sources */,
-				2BC283912A2F855D00C57272 /* ViewToPresenterConnectivityCheckProtocol.swift in Sources */,
+				2B1970D22A35C4D4000A518B /* CoreDataStack.swift in Sources */,
 				2BC2839D2A2F8DA800C57272 /* HomePresenter.swift in Sources */,
-				2BC283422A2F754D00C57272 /* ConnectivityCheckView.swift in Sources */,
+				2B1970D82A35C5A0000A518B /* DetailViewInteractor.swift in Sources */,
 				2BC283982A2F8CE800C57272 /* HomeView.swift in Sources */,
+				2B1970D62A35C52F000A518B /* BaseView.swift in Sources */,
 				2BC2839F2A2F8DC000C57272 /* HomeRouter.swift in Sources */,
 				2BC2833E2A2F754D00C57272 /* AppDelegate.swift in Sources */,
 				2BC283402A2F754D00C57272 /* SceneDelegate.swift in Sources */,
-				2BC283932A2F865000C57272 /* ConnectivityCheckInteractor.swift in Sources */,
+				2B1970D42A35C4F4000A518B /* MusicPlayerService.swift in Sources */,
 				2BC2838F2A2F7CBA00C57272 /* LoadingShowable.swift in Sources */,
 				2B039AF92A30849000DAD28E /* DetailPresenter.swift in Sources */,
 				2BC283AA2A2F90DA00C57272 /* MusicCell.swift in Sources */,
