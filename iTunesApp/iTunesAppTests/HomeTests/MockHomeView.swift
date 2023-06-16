@@ -27,7 +27,7 @@ final class MockHomeView: HomeViewProtocol {
     func showMusic(musicArray: Array<Music>) {
         isShowMusicCalled = true
     }
-
+    
     func showError() {
         isShowErrorCalled = true
     }

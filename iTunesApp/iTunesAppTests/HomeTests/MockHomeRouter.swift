@@ -12,11 +12,11 @@ import XCTest
 final class MockHomeRouter: HomeRouterProtocol {
     
     var isNavigateToDetailViewCalled = false
-
+    
     static func createModule() -> UIViewController {
         return UIViewController()
     }
-
+    
     func navigateToDetailView(on view: HomeViewProtocol?, with music: Music) {
         isNavigateToDetailViewCalled = true
     }

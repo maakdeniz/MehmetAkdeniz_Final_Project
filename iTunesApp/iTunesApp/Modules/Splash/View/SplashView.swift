@@ -20,11 +20,11 @@ final class SplashView: BaseView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         presenter.viewDidAppear()
     }
-
+    
 }
 
 extension SplashView: SplashViewControllerProtocol {

@@ -25,7 +25,7 @@ protocol DetailPresenterProtocol {
 }
 //MARK: - DetailPresenter
 final class DetailPresenter: DetailPresenterProtocol {
-   
+    
     var view: DetailViewProtocol?
     var router: DetailRoterProtocol?
     var interactor: DetailInteractorProtocol?

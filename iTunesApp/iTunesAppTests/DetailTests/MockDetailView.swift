@@ -10,7 +10,7 @@ import XCTest
 @testable import iTunesAPI
 
 final class MockDetailView: DetailViewProtocol {
-
+    
     var music: Music?
     var isShowMusicDetailCalled = false
     var isPresentAddConfirmationCalled = false

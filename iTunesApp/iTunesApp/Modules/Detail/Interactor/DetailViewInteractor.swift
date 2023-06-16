@@ -21,7 +21,7 @@ protocol DetailInteractorProtocol {
 //MARK: - DetailInteractor
 final class DetailInteractor: DetailInteractorProtocol {
     var music: Music?
-
+    
     func addToFavorites(music: Music) {
         CoreDataStack.shared.addToFavorites(music: music)
     }
@@ -36,10 +36,10 @@ final class DetailInteractor: DetailInteractorProtocol {
     
     func playOrStopMusic(for music: Music) {
         guard let musicUrl = URL(string: music.previewUrl ?? "") else {
-                print("Music URL is nil.")
-                return
+            print("Music URL is nil.")
+            return
         }
-
+        
         if let playerRate = MusicPlayerService.shared.player?.rate, playerRate != 0 {
             MusicPlayerService.shared.pause()
         } else {

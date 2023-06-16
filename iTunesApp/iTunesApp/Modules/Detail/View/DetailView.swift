@@ -21,7 +21,7 @@ protocol DetailViewProtocol {
 }
 //MARK: - DetailView
 final class DetailView: BaseView, DetailViewProtocol {
-
+    
     //MARK: - UI Elements
     @IBOutlet private weak var artisImage: UIImageView!
     @IBOutlet private weak var artistNameLabel: UILabel!
@@ -97,7 +97,7 @@ final class DetailView: BaseView, DetailViewProtocol {
             }
         }
     }
-
+    
     func showError() {
         showAlert("Hata", "Veriler listelenirken hata oluştu.")
     }
@@ -106,7 +106,7 @@ final class DetailView: BaseView, DetailViewProtocol {
         self.favoriteButton.tintColor = UIColor.systemBlue
         self.favoriteButton.image = UIImage(systemName: "trash")
     }
-
+    
     func showRemovedFromFavorites() {
         self.favoriteButton.tintColor = UIColor.systemBlue
         self.favoriteButton.image = UIImage(systemName: "heart")
@@ -121,14 +121,14 @@ final class DetailView: BaseView, DetailViewProtocol {
     ) {
         let alert = UIAlertController(title: title,
                                       message: message, preferredStyle: .alert)
-
+        
         alert.addAction(UIAlertAction(title: confirmTitle, style: .default, handler: { _ in
             confirmAction()
         }))
         alert.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
+    
     func presentAddConfirmation() {
         presentConfirmation(
             title: "Favorilere Ekle",
@@ -138,7 +138,7 @@ final class DetailView: BaseView, DetailViewProtocol {
             self.presenter?.confirmAddToFavorites(for: self.music!)
         }
     }
-
+    
     func presentRemoveConfirmation() {
         presentConfirmation(
             title: "Favorilerden Çıkar",

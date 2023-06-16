@@ -32,22 +32,22 @@ final class HomePresenterTests: XCTestCase {
         presenter.interactor = interactor
         presenter.router = router
     }
-
+    
     func testStartFetchingMusic() {
         presenter.startFetchingMusic(searchTerm: "Test")
         XCTAssertTrue(interactor.isFetchMusicCalled)
     }
-
+    
     func testMusicFetchedSuccess() {
         presenter.musicFetchedSuccess(musicModelArray: [music])
         XCTAssertTrue(view.isShowMusicCalled)
     }
-
+    
     func testMusicFetchFailed() {
         presenter.musicFetchFailed()
         XCTAssertTrue(view.isShowErrorCalled)
     }
-
+    
     func testShowDetailScreen() {
         presenter.showDetailScreen(music: music)
         XCTAssertTrue(router.isNavigateToDetailViewCalled)

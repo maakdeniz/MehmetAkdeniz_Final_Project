@@ -42,12 +42,12 @@ final class DetailPresenterTests: XCTestCase {
     }
     
     func testRemoveFromFavorites() {
-       
+        
         presenter.removeFromFavorites(music: music)
         XCTAssertTrue(interactor.isRemoveFromFavoritesCalled)
         XCTAssertTrue(view.isShowRemovedFromFavoritesCalled)
     }
-
+    
     func testHandleFavoriteTap() {
         
         presenter.handleFavoriteTap(for: music)

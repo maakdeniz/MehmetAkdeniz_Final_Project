@@ -33,4 +33,4 @@ final class HomeInteractor: HomeInteractorProtocol {
             }
         }
     }
-    }
+}

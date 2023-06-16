@@ -12,7 +12,7 @@ final class MockHomePresenterOutputProtocol: HomePresenterOutputProtocol {
     
     var musicModelArray: [Music] = []
     var isFetchFailed: Bool = false
-
+    
     func musicFetchedSuccess(musicModelArray: [Music]) {
         self.musicModelArray = musicModelArray
     }

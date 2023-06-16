@@ -7,7 +7,7 @@
 
 import UIKit
 import iTunesAPI
-    //MARK: - MusicCell
+//MARK: - MusicCell
 
 final class MusicCell: UITableViewCell {
     //MARK: - UI Elements
@@ -24,7 +24,7 @@ final class MusicCell: UITableViewCell {
     //MARK: - Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-     
+        
         NotificationCenter.default.addObserver(self, selector: #selector(updatePlayButtonImage),
                                                name: .playbackChanged, object: nil)
         playAndStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
