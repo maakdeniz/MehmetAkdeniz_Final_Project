@@ -8,11 +8,12 @@
 import UIKit
 import iTunesAPI
 
+//MARK: - HomeRouterProtocol
 protocol HomeRouterProtocol {
     static func createModule() -> UIViewController
     func navigateToDetailView(on view: HomeViewProtocol?, with music: Music)
 }
-
+//MARK: - HomeRouter
 final class HomeRouter: HomeRouterProtocol {
     
     func navigateToDetailView(on view: HomeViewProtocol?, with music: Music) {

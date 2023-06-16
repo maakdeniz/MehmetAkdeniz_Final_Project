@@ -7,14 +7,14 @@
 
 import Foundation
 import iTunesAPI
-
+//MARK: - HomePresenterOutputProtocol
 protocol HomePresenterOutputProtocol {
     
     func musicFetchedSuccess(musicModelArray:Array<Music>)
     func musicFetchFailed()
     
 }
-
+//MARK: -HomePresenterProtocol
 protocol HomePresenterProtocol {
     var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorProtocol? { get set }
@@ -25,9 +25,9 @@ protocol HomePresenterProtocol {
     func setScreenTitle()
     func setSetupTableviewAndSearchBar()
 }
-
+//MARK: -HomePresenter
 final class HomePresenter: HomePresenterProtocol {
-   
+    
     var view: HomeViewProtocol?
     var interactor: HomeInteractorProtocol?
     var router: HomeRouterProtocol?
@@ -49,9 +49,9 @@ final class HomePresenter: HomePresenterProtocol {
         view?.setupTableviewAndSearchBar()
     }
 }
-
+//MARK: - HomePresenterOutputProtocol Extesion
 extension HomePresenter: HomePresenterOutputProtocol {
-   
+    
     func musicFetchedSuccess(musicModelArray: Array<Music>) {
         view?.showMusic(musicArray: musicModelArray)
     }

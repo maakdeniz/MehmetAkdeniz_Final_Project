@@ -6,15 +6,16 @@
 //
 
 import XCTest
-@testable import iTunesApp // Projedeki gerçek module ismini kullanın.
+@testable import iTunesApp 
 @testable import iTunesAPI
 
 final class MockHomeInteractor: HomeInteractorProtocol {
     
     var presenter: HomePresenterOutputProtocol?
     var service: ITunesServiceProtocol?
+    
     var isFetchMusicCalled = false
-
+    
     func fetchMusicForArtist(searchTerm: String) {
         isFetchMusicCalled = true
     }

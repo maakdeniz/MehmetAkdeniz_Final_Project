@@ -7,8 +7,10 @@
 
 import UIKit
 import iTunesAPI
+    //MARK: - MusicCell
 
 final class MusicCell: UITableViewCell {
+    //MARK: - UI Elements
     
     @IBOutlet private weak var artistImage: UIImageView!
     @IBOutlet private weak var musicLabel: UILabel!
@@ -16,12 +18,15 @@ final class MusicCell: UITableViewCell {
     @IBOutlet private weak var collectionLabel: UILabel!
     @IBOutlet private weak var playAndStopButton: UIButton!
     
+    //MARK: - Variables
     var musicUrl: URL?
     
+    //MARK: - Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        setAccessibilityIdentifier()
-        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayButtonImage), name: .playbackChanged, object: nil)
+     
+        NotificationCenter.default.addObserver(self, selector: #selector(updatePlayButtonImage),
+                                               name: .playbackChanged, object: nil)
         playAndStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
     }
     
@@ -29,7 +34,17 @@ final class MusicCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBAction func playAndStopAction(_ sender: Any) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        if musicUrl == MusicPlayerService.shared.currentURL {
+            MusicPlayerService.shared.stop()
+            stopPlaying()
+        } else {
+            stopPlaying()
+        }
+    }
+    
+    @IBAction private func playAndStopAction(_ sender: Any) {
         guard let musicUrl = musicUrl else { return }
         
         if MusicPlayerService.shared.isPlaying(url: musicUrl) {
@@ -41,15 +56,6 @@ final class MusicCell: UITableViewCell {
             MusicPlayerService.shared.play(url: musicUrl)
             startPlaying()
         }
-    }
-    
-    func setAccessibilityIdentifier() {
-        artistImage.accessibilityIdentifier = "cellArtistImage"
-        musicLabel.accessibilityIdentifier = "cellMusicLabel"
-        artistName.accessibilityIdentifier = "cellArtistName"
-        collectionLabel.accessibilityIdentifier = "cellCollectionLabel"
-        playAndStopButton.accessibilityIdentifier = "MusicCellPlayButton"
-        self.accessibilityIdentifier = "MusicCell0"
     }
     
     func startPlaying() {
@@ -68,8 +74,6 @@ final class MusicCell: UITableViewCell {
         if let url = URL(string: music.previewUrl ?? "") {
             musicUrl = url
         }
-        
-        setAccessibilityIdentifier()
     }
     
     @objc private func updatePlayButtonImage() {
@@ -79,10 +83,6 @@ final class MusicCell: UITableViewCell {
             playAndStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
     }
-    
-    deinit {
-            NotificationCenter.default.removeObserver(self)
-        }
     
     private func updateUI(title: String,
                           artist: String,
@@ -104,13 +104,4 @@ final class MusicCell: UITableViewCell {
         }
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        if musicUrl == MusicPlayerService.shared.currentURL {
-            MusicPlayerService.shared.stop()
-            stopPlaying()
-        } else {
-            stopPlaying()
-        }
-    }
 }

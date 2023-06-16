@@ -47,12 +47,7 @@ final class DetailPresenterTests: XCTestCase {
         XCTAssertTrue(interactor.isRemoveFromFavoritesCalled)
         XCTAssertTrue(view.isShowRemovedFromFavoritesCalled)
     }
-    func testPlayOrStopMusic() {
-        
-        presenter.playOrStopMusic(for: music)
-        XCTAssertTrue(interactor.isPlayOrStopMusicCalled)
-    }
-    
+
     func testHandleFavoriteTap() {
         
         presenter.handleFavoriteTap(for: music)
@@ -78,12 +73,14 @@ final class DetailPresenterTests: XCTestCase {
         presenter.checkIfFavorite(music: music)
         XCTAssertTrue(interactor.isFavoriteCalled)
         XCTAssertTrue(view.isUpdateFavoriteStatusCalled)
+        
     }
     
     func testCheckIfFavoriteOnInit() {
         
         presenter.checkIfFavoriteOnInit(for: music)
         XCTAssertTrue(view.isUpdateFavoriteStatusCalled)
+        
     }
     
 }

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import iTunesApp // Projedeki gerçek module ismini kullanın.
+@testable import iTunesApp 
 @testable import iTunesAPI
 
 final class MockHomeRouter: HomeRouterProtocol {

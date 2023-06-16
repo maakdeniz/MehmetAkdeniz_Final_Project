@@ -7,6 +7,7 @@
 
 
 public struct Music: Decodable,Equatable {
+    
     public let artistName: String?
     public let trackName: String?
     public let artworkUrl: String?

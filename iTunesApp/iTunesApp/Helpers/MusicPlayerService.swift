@@ -21,7 +21,7 @@ class MusicPlayerService {
     
     func play(url: URL) {
         if currentURL != url {
-            stop() // Stop the previous song if there is one playing
+            stop()
             player = AVPlayer(url: url)
             currentURL = url
             NotificationCenter.default.post(name: .playbackChanged, object: nil)

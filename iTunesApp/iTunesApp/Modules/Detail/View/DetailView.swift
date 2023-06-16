@@ -7,7 +7,7 @@
 
 import UIKit
 import iTunesAPI
-
+//MARK: - DetailViewProtocol
 protocol DetailViewProtocol {
     var music: Music? { get set }
     func showError()
@@ -19,11 +19,10 @@ protocol DetailViewProtocol {
     func presentAddConfirmation()
     func presentRemoveConfirmation()
 }
-
+//MARK: - DetailView
 final class DetailView: BaseView, DetailViewProtocol {
 
-    var presenter: DetailPresenterProtocol?
-    
+    //MARK: - UI Elements
     @IBOutlet private weak var artisImage: UIImageView!
     @IBOutlet private weak var artistNameLabel: UILabel!
     @IBOutlet private weak var collectionLabel: UILabel!
@@ -33,12 +32,20 @@ final class DetailView: BaseView, DetailViewProtocol {
     @IBOutlet private weak var musicPriceLabel: UILabel!
     @IBOutlet private weak var collectionPriceLabel: UILabel!
     
+    //MARK: - Variables
+    var presenter: DetailPresenterProtocol?
     var music: Music?
     var musicUrl: URL?
-    lazy var favoriteButton = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
     
+    lazy var favoriteButton = UIBarButtonItem(image: UIImage(systemName: "heart"),
+                                              style: .plain,
+                                              target: self,
+                                              action: #selector(favoriteButtonTapped))
+    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAccessibilityIdentifier()
         playAndStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         presenter?.startSetup()
         
@@ -53,24 +60,17 @@ final class DetailView: BaseView, DetailViewProtocol {
         playAndStopButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
     }
     
+    //MARK: - Functions
     @objc private func favoriteButtonTapped() {
         presenter?.handleFavoriteTap(for: music!)
     }
     
     @IBAction func playAndStopAction(_ sender: Any) {
-        presenter?.playOrStopMusic(for: music!)
+        presenter?.playOrStopMusic()
     }
     
     func setAccessibilityIdentifier() {
-        artisImage.accessibilityIdentifier = "detailArtistImage"
-        artistNameLabel.accessibilityIdentifier = "detailArtistNameLabel"
-        collectionLabel.accessibilityIdentifier = "detailCollectionLabel"
         playAndStopButton.accessibilityIdentifier = "detailPlayAndStopButton"
-        musicNameLabel.accessibilityIdentifier = "detailMusicNameLabel"
-        musicGenreLabel.accessibilityIdentifier = "detailMusicGenreLabel"
-        musicPriceLabel.accessibilityIdentifier = "detailMusicPriceLabel"
-        collectionPriceLabel.accessibilityIdentifier = "detailCollectionPriceLabel"
-        favoriteButton.accessibilityIdentifier = "detailFavoriteButton"
     }
     
     func showMusicDetail() {
@@ -119,13 +119,13 @@ final class DetailView: BaseView, DetailViewProtocol {
         confirmTitle: String,
         confirmAction: @escaping () -> Void
     ) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title,
+                                      message: message, preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: confirmTitle, style: .default, handler: { _ in
             confirmAction()
         }))
         alert.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
-
         self.present(alert, animated: true, completion: nil)
     }
 

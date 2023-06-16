@@ -6,7 +6,7 @@
 //
 import Foundation
 import iTunesAPI
-
+//MARK: - DetailPresenterProtocol
 protocol DetailPresenterProtocol {
     var view: DetailViewProtocol? { get set }
     var router: DetailRoterProtocol? { get set }
@@ -18,17 +18,18 @@ protocol DetailPresenterProtocol {
     func removeFromFavorites(music: Music)
     func checkIfFavorite(music: Music)
     func handleFavoriteTap(for music: Music)
-    func playOrStopMusic(for music: Music)
+    func playOrStopMusic()
     func confirmAddToFavorites(for music: Music)
     func confirmRemoveFromFavorites(for music: Music)
     func checkIfFavoriteOnInit(for music: Music)
 }
-
+//MARK: - DetailPresenter
 final class DetailPresenter: DetailPresenterProtocol {
    
     var view: DetailViewProtocol?
     var router: DetailRoterProtocol?
     var interactor: DetailInteractorProtocol?
+    
     var music: Music? {
         didSet {
             (view as? DetailView)?.music = music
@@ -59,8 +60,8 @@ final class DetailPresenter: DetailPresenterProtocol {
         view?.updateFavoriteStatus(isFavorite: isFavorite, withAnimation: false)
     }
     
-    func playOrStopMusic(for music: Music) {
-        interactor?.playOrStopMusic(for: music)
+    func playOrStopMusic() {
+        interactor?.playOrStopMusic(for: music!)
         view?.updatePlayButton(isPlaying: (MusicPlayerService.shared.player?.rate != 0))
     }
     

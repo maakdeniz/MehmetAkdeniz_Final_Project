@@ -7,8 +7,8 @@
 
 import Foundation
 import iTunesAPI
-import CoreData
 
+//MARK: - DetailInteractorProtocol
 protocol DetailInteractorProtocol {
     var music: Music? { get set }
     
@@ -18,6 +18,7 @@ protocol DetailInteractorProtocol {
     func playOrStopMusic(for music: Music)
 }
 
+//MARK: - DetailInteractor
 final class DetailInteractor: DetailInteractorProtocol {
     var music: Music?
 

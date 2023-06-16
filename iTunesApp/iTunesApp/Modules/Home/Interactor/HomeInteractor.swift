@@ -16,21 +16,21 @@ protocol HomeInteractorProtocol {
 
 final class HomeInteractor: HomeInteractorProtocol {
     var presenter: HomePresenterOutputProtocol?
-        var service: ITunesServiceProtocol?
-        
-        init(service: ITunesServiceProtocol) {
-            self.service = service
-        }
-
+    var service: ITunesServiceProtocol?
+    
+    init(service: ITunesServiceProtocol) {
+        self.service = service
+    }
+    
     func fetchMusicForArtist(searchTerm:String) {
-            service?.fetchMusicForArtist(artist: searchTerm) { [weak self] result in
-                switch result {
-                case .success(let musicList):
-                    self?.presenter?.musicFetchedSuccess(musicModelArray: musicList)
-                case .failure(let error):
-                    print(error)
-                    self?.presenter?.musicFetchFailed()
-                }
+        service?.fetchMusicForArtist(artist: searchTerm) { [weak self] result in
+            switch result {
+            case .success(let musicList):
+                self?.presenter?.musicFetchedSuccess(musicModelArray: musicList)
+            case .failure(let error):
+                print(error)
+                self?.presenter?.musicFetchFailed()
             }
         }
+    }
     }
